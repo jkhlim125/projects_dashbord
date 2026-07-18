@@ -140,23 +140,40 @@ This provides insight into **decision robustness**, not just static results.
 
 ---
 
+## Screenshots
+
+Shown on the bundled sample data.
+
+| Decision flow | Pareto frontier |
+|---|---|
+| ![UI](results/ui.png) | ![Pareto](results/pareto.png) |
+
+| Recommendation | Sensitivity |
+|---|---|
+| ![Recommendation](results/recommendation.png) | ![Sensitivity](results/sensibility.png) |
+
+> **Note on data.** The bundled `sample_data/` is synthetic and illustrative — it exercises the
+> decision pipeline (feasibility → Pareto → recommendation → sensitivity), it is not a research
+> result. Point the tool at your own experiment / RTL outputs for real analysis.
+
 ## Project Structure
 
 ```text
-stream/
-├── app.py                  # Streamlit UI (decision flow)
-├── analysis_engine.py      # Constraints, Pareto, scoring
-├── parsers.py              # Data ingestion and normalization
-├── recommendation.py       # Recommendation logic + explanations
-├── sample_data/
-│   ├── sample_tradeoff.csv
-│   ├── sample_experiments.json
-│   └── sample_rtl_results.csv
-├── README.md
-└── requirements.txt
+app.py                  # Streamlit UI (decision flow)
+analysis_engine.py      # Constraints, Pareto, scoring
+parsers.py              # Data ingestion and normalization
+recommendation.py       # Recommendation logic + explanations
+requirements.txt
+sample_data/            # synthetic, illustrative
+  ├── sample_tradeoff.csv
+  ├── sample_experiments.json
+  └── sample_rtl_results.csv
+results/                # UI / output screenshots
 ```
-Run Locally
-```
+
+## Run locally
+
+```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
